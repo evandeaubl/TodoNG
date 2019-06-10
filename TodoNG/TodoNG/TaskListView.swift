@@ -58,6 +58,16 @@ struct TaskListView : View {
                 for index in indexSet {
                     self.taskListData.taskList.tasks.remove(at: index)
                 }
+            }.onMove { indexSet, to in
+                var movers: [Task] = []
+                var newTo = to
+                for index in indexSet {
+                    movers.append(self.taskListData.taskList.tasks.remove(at: index))
+                    if index < to {
+                        newTo -= 1
+                    }
+                }
+                self.taskListData.taskList.tasks.insert(contentsOf: movers, at: newTo)
             }
         }.navigationBarTitle(Text(taskListData.taskList.name))
     }

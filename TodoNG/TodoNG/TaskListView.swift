@@ -30,7 +30,6 @@ final class TaskListViewData : BindableObject {
     
     init(taskList: TaskList) {
         self.taskList = taskList
-        didChange.send(self)
     }
 }
 

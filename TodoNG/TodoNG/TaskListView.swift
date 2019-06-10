@@ -9,13 +9,15 @@
 import SwiftUI
 import Combine
 
-// MARK: - view
+// MARK: - view extension
 
 extension View {
     func endEditing(_ force: Bool) {
         UIApplication.shared.keyWindow?.endEditing(force)
     }
 }
+
+// MARK: - view model
 
 final class TaskListViewData : BindableObject {
     let didChange = PassthroughSubject<TaskListViewData, Never>()
@@ -31,6 +33,8 @@ final class TaskListViewData : BindableObject {
         didChange.send(self)
     }
 }
+
+// MARK: - view
 
 struct TaskListView : View {
     @ObjectBinding var taskListData: TaskListViewData

@@ -39,11 +39,7 @@ struct TaskListView : View {
     var body: some View {
         List() {
             HStack {
-                TextField($newTaskName, placeholder: Text("New Task"), onEditingChanged: { editing in
-                    if editing {
-                        
-                    }
-                }, onCommit: {
+                TextField($newTaskName, placeholder: Text("New Task"), onCommit: {
                     let task = Task(id: self.taskListData.taskList.nextId, text: self.newTaskName, completed: false)
                     self.taskListData.taskList.tasks.insert(task, at: 0)
                     self.newTaskName = ""

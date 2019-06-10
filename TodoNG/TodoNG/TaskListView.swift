@@ -60,18 +60,15 @@ struct TaskListView : View {
                     self.taskListData.taskList.tasks.remove(at: index)
                 }
             }.onMove { indexSet, to in
-                print("-")
-                print(to)
+                // TODO this is resulting in a double move in edit mode
                 var movers: [Task] = []
                 var newTo = to
                 for index in indexSet {
-                    print(index)
                     movers.append(self.taskListData.taskList.tasks.remove(at: index))
-                    //if index < to {
-                    //    newTo -= 1
-                    //}
+                    if index < to {
+                        newTo -= 1
+                    }
                 }
-                print(newTo)
                 self.taskListData.taskList.tasks.insert(contentsOf: movers, at: newTo)
             }
             }.navigationBarTitle(Text(taskListData.taskList.name)).navigationBarItems(trailing: Button(action: {

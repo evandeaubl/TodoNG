@@ -38,6 +38,7 @@ final class TaskListViewData : BindableObject {
 struct TaskListView : View {
     @ObjectBinding var taskListData: TaskListViewData
     @State var newTaskName = ""
+    @Environment(\.editMode) var editMode
     
     var body: some View {
         List() {
@@ -59,17 +60,28 @@ struct TaskListView : View {
                     self.taskListData.taskList.tasks.remove(at: index)
                 }
             }.onMove { indexSet, to in
+                print("-")
+                print(to)
                 var movers: [Task] = []
                 var newTo = to
                 for index in indexSet {
+                    print(index)
                     movers.append(self.taskListData.taskList.tasks.remove(at: index))
-                    if index < to {
-                        newTo -= 1
-                    }
+                    //if index < to {
+                    //    newTo -= 1
+                    //}
                 }
+                print(newTo)
                 self.taskListData.taskList.tasks.insert(contentsOf: movers, at: newTo)
             }
-        }.navigationBarTitle(Text(taskListData.taskList.name))
+            }.navigationBarTitle(Text(taskListData.taskList.name)).navigationBarItems(trailing: Button(action: {
+                if self.editMode?.value == .inactive {
+                    self.editMode?.value = .active
+                }
+                else {
+                    self.editMode?.value = .inactive
+                }
+            }) { Image(systemName: "list.number")})
     }
 }
 

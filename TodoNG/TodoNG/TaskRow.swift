@@ -14,7 +14,14 @@ struct TaskRow : View {
     
     var body: some View {
         HStack() {
-            Text(text).foregroundColor(completed ? .gray : .primary)
+            if completed {
+                Text(text).foregroundColor(.gray)
+            }
+            else {
+                TextField($text, onCommit: {
+                    self.endEditing(true)
+                })
+            }
             Spacer()
             Button(action: {
                 self.completed = !self.completed

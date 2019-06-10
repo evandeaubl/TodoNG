@@ -30,6 +30,7 @@
 		205B206422ADACCD00244C09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		205B206A22ADBEDA00244C09 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		205B206C22ADBF1C00244C09 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
+		205B206E22ADD8F300244C09 /* TodoNG.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodoNG.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +63,7 @@
 		205B205222ADACCC00244C09 /* TodoNG */ = {
 			isa = PBXGroup;
 			children = (
+				205B206E22ADD8F300244C09 /* TodoNG.entitlements */,
 				205B205322ADACCC00244C09 /* AppDelegate.swift */,
 				205B205522ADACCC00244C09 /* SceneDelegate.swift */,
 				205B205A22ADACCC00244C09 /* TaskListView.swift */,
@@ -296,8 +298,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TodoNG/TodoNG.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "TodoNG/Preview\\ Content";
+				DEVELOPMENT_TEAM = K8H7B496NM;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = TodoNG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -306,6 +310,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.appsdissected.TodoNG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_UIKITFORMAC = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -315,8 +320,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TodoNG/TodoNG.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "TodoNG/Preview\\ Content";
+				DEVELOPMENT_TEAM = K8H7B496NM;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = TodoNG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -325,6 +332,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.appsdissected.TodoNG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_UIKITFORMAC = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
